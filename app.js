@@ -1,4 +1,5 @@
-const express = require("express");
+import inputDat from "./data.json" assert { type: "json" };
+import express from "express";
 const app = express();
 const port = 3000;
 
@@ -6,6 +7,7 @@ const products = [
   {
     id: 1,
     name: "Ivanhoe",
+
     author: "Sir Walter Scott",
   },
   {
@@ -36,7 +38,7 @@ const generateCards = () => {
 app.get("/", (req, res) => res.send("Hello API!"));
 
 app.get("/products/:id", (req, res) => {
-  res.send("Page not found");
+  res.send(inputDat);
 });
 
 app.get("/products", (req, res) => {
